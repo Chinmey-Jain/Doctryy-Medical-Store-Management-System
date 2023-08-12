@@ -1,0 +1,260 @@
+.navBackground{
+    background: linear-gradient(to right,#155799,#159957);
+    position: fixed;
+    width: 100%;
+    height: 90px;
+}
+.logo{
+    float: left;
+    z-index: 2;
+    margin-top: 10px;
+}
+.navMenu {
+    margin-top: 10px;
+    position:relative;
+    height: 70px;
+    list-style-type:none;
+    border: 30px;
+    padding: 0;
+    overflow: hidden;
+    background-color:white;
+  }
+  
+.navMenuList{
+    display: inline;
+    margin-block-start: 10px;
+    float:left;
+    border-right: 1px solid #bbb;
+  }
+  
+.navMenuListItem{
+    text-align: center;
+    font-size: 15px;
+    display:block;
+    color:black;
+    padding: 14px 16px;
+    text-decoration:none;
+  }
+a.navMenuListItem:hover{
+    opacity: 0.5;
+    font-size: 20px;
+    cursor:pointer;
+}
+.blockquote_box{
+  border: 0px solid white;
+  border-top: 1px solid black;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+
+}
+.blockquote{
+  display: table;
+  max-width: 580px;
+  text-align: center;
+  width: auto;
+  margin: 10px 30px;
+  padding: 25px;
+  background: rgb(207, 233, 207);
+  border: 1px solid rgb(108, 178, 108);
+  color: rgb(26, 45, 26);
+}
+.blockquote_text{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin: 0;
+}
+.blockquote_text:not(:last-child){
+  margin-bottom:1em;
+}
+.blockquote_border{
+  border-left-width:10px ;
+}
+.banner{
+  overflow: hidden;
+  width: 100%;
+  margin-left:auto;
+  margin-right: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.banner_img{
+  max-width: 100%;
+  height: auto;
+  background-size: cover;
+  margin: 5px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background:white;
+}
+footer{
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  height: auto;
+  width: 100vw;
+  font-family: "Open Sans";
+  padding-top: 40px;
+  color: #fff;
+}
+.footer-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.footer-content h3{
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p{
+  max-width: 500px;
+  margin: 10px auto;
+  line-height: 28px;
+  font-size: 14px;
+}
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: #fff;
+}
+.socials a i{
+  font-size: 1.1rem;
+  transition: color .4s ease;
+
+}
+.socials a:hover i{
+  color: aqua;
+  cursor:pointer;
+}
+
+.footer-bottom{
+  background: #000;
+  width: 100vw;
+  padding: 20px 0;
+  text-align: center;
+}
+.footer-bottom p{
+  font-size: 14px;
+  word-spacing: 2px;
+  text-transform: capitalize;
+}
+.footer-bottom span{
+  text-transform: uppercase;
+  opacity: .4;
+  font-weight: 200;
+}
+.brandContainer{
+  display: table;
+  margin: 0 auto;
+  list-style-type: none ;
+  list-style: none;
+  align-items: center;
+}
+.brands{
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin: 0 -1.5em 1em;
+  border-bottom: solid 2px green;
+  align-content: center;
+  text-align: center;
+  padding: 1em;
+  padding-bottom: .5em;
+}
+.brandicon{
+  text-decoration: none;
+  display: table;
+  list-style-type: none;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.brandicon li{
+  margin: 0 10px;
+  text-decoration: none;
+  display: inline;
+  width: 25%;
+  border: 30px;
+  padding: 0;
+  float: right;
+  padding: 5px;
+}
+.brandbox{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: auto;
+}
+
+/* hero img */
+.hero-slider {
+  z-index: -1;
+  position: relative;
+  height: 500px;
+  overflow: hidden;
+  padding: 5px;
+  margin: 15px;
+}
+
+.slider-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slider-item.active {
+  opacity: 1;
+}
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 15px;
+}
+
+.next-btn {
+  right: 15px;
+}

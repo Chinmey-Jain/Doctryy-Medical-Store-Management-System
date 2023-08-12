@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctryy - Online Pharmacy Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <style>
+      /* Reset default browser styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.4;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Navigation bar styles */
+      nav {
+        background-color: #333;
+        color: #fff;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+      }
+
+      nav a:hover {
+        background-color: #555;
+      }
+
+      nav button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-left: auto;
+        cursor: pointer;
+      }
+
+      nav button:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Hero image slider styles */
+      .hero-slider {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        margin-top: 70px;
+      }
+
+      .hero-slider img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .hero-slider img.active {
+        opacity: 1;
+      }
+
+      /* Feedback form styles */
+      .feedback-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+      }
+
+      .feedback-form {
+        background-color: #fff;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .feedback-form h2 {
+        margin-bottom: 20px;
+      }
+
+      .feedback-form label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .feedback-form input,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+      }
+
+      .feedback-form button[type="submit"],
+      .feedback-form button#close-feedback {
+        background-color: #333;
+        border: none;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .feedback-form button[type="submit"]:hover,
+      .feedback-form button#close-feedback:hover {
+        background-color: #555;
+      }
+    </style>
+    <nav>
+      <div class="container">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact Us</a>
+        <button id="feedback-btn">Feedback</button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="hero-slider">
+        <img src="images/hero-1.jpg" class="active" alt="1" />
+        <img src="images/hero-2.jpg" alt="2" />
+        <img src="images/hero-3.jpg" alt="3" />
+        <img src="images/hero-4.jpg" alt="4" />
+      </div>
+    </div>
+
+    <div class="feedback-overlay">
+      <div class="feedback-form">
+        <h2>Feedback Form</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+        <button id="close-feedback">Close</button>
+      </div>
+    </div>
+
+    <script>
+      // Select elements
+      // Select elements
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelectorAll(".nav__link");
+      const heroImages = document.querySelectorAll(".hero-slider img");
+      const feedbackOverlay = document.querySelector(".feedback-overlay");
+      const closeFeedback = document.querySelector("#close-feedback");
+      const form = document.querySelector("#feedback-form");
+      const feedbackStatus = document.querySelector("#feedback-status");
+
+      // Navigation toggle
+      navToggle.addEventListener("click", () => {
+        document.body.classList.toggle("nav-open");
+      });
+
+      // Navigation links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("nav-open");
+        });
+      });
+
+      // Hero slider
+      let activeImage = 0;
+      setInterval(() => {
+        heroImages[activeImage].classList.remove("active");
+        activeImage++;
+        if (activeImage >= heroImages.length) {
+          activeImage = 0;
+        }
+        heroImages[activeImage].classList.add("active");
+      }, 5000);
+
+      // Feedback form
+      function showFeedbackForm() {
+        feedbackOverlay.style.display = "block";
+      }
+
+      function hideFeedbackForm() {
+        feedbackOverlay.style.display = "none";
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", form.getAttribute("action"));
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            feedbackStatus.textContent = "Feedback submitted successfully!";
+            form.reset();
+          } else {
+            feedbackStatus.textContent =
+              "An error occurred. Please try again later.";
+          }
+        };
+        xhr.send(formData);
+      });
+
+      closeFeedback.addEventListener("click", () => {
+        hideFeedbackForm();
+      });
+    </script>
+  </body>
+</html>

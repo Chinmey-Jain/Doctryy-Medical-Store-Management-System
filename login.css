@@ -1,0 +1,98 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right,#155799,#159957);
+    color: whitesmoke;
+}
+h1{
+    text-align: center;
+}
+form{
+    width: 35rem;
+    margin: auto;
+    color: whitesmoke;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(11, 15, 13, 0.582);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 20px 25px;
+}
+input{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    padding: 15px 18px;
+    box-sizing: border-box;
+}
+button{
+    background-color: #030804;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 5px;
+    margin: 7px 0;
+    width: 100%;
+    font-size: 18px;
+}
+button:hover{
+    opacity: 0.6;
+    cursor:pointer;
+}
+.headingsContainer{
+    text-align: center;
+}
+.headingsContainer p{
+    color: gray;
+}
+.mainContainer{
+    padding: 16px;
+}
+.subContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#chkboxlabel{
+    display: inline;
+    padding-left: 15px;
+    text-indent: -15px;
+}
+#chkbox{
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+    margin-right:5px;
+    vertical-align: bottom;
+    position: relative;
+    top: -1px;
+}
+.subContainer a{
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+span.forgotPassword a{
+    float: right;
+    color: whitesmoke;
+    padding-top: 16px;
+}
+.forgotPassword a{
+    color: rgb(74,146,235);
+}
+.forgotPassword a:link{
+    text-decoration: none;
+}
+.register{
+    color: white;
+    text-align: center;
+}
+.register a{
+    color: rgb(74,146,235);
+}
+.register a:link{
+    text-decoration: none;
+}
+button a{
+    text-decoration: none;
+    color: white;
+}

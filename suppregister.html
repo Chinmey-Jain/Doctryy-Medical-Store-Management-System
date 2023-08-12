@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Supplier Registration</title>
+    <link rel="icon" href="/symbol_only-removebg-preview.png">
+    <link rel="stylesheet" href="./login.css" />
+</head>
+<body>
+    <h1>New Supplier Registration</h1>
+    <form name="form1" id="form1" action="suppregister.php" method="post">
+        <div class="headingsContainer">
+            <h3>Register</h3>
+            <p>Enter the Credentials</p>
+        </div>
+        <div class="mainContainer">
+            <label for="companyName">Company Name</label>
+            <input type="text" placeholder="Company Name" name="companyName" required>
+            <br><br>
+            <label for="name">Your Name</label>
+            <input type="text" placeholder="Name" name="name" required>
+            <br><br>
+            <label for="email">Your E-mail Id</label>
+            <input type="email" placeholder="E-mail" name="email1" required>
+            <br><br>
+            <label for="mobno">Your Mobile Number</label>
+            <input type="tel" placeholder="Mobile Number" name="tel1" required>
+            <br><br>
+            <label for="address">Your Address</label>
+            <input type="text" placeholder="Address" name="address" required>
+            <br><br>
+            <label for="Password">Your Password</label>
+            <input type="Password" placeholder="Enter Password" name="Pssword1" required>
+            <br><br>
+            <button type="submit" id="submitbtn" name="submitbtn">
+                <!-- <a id="redirect" href="/supplogin.html"> -->
+                    Create Account
+                <!-- </a> -->
+            </button>
+        </div>
+    </form>
+   
+    
+    <script>
+
+        const form = document.getElementById('form1');
+        let submitBtn = document.getElementById('submitBtn');
+        submitBtn.addEventListener('click', function(event) {
+          event.preventDefault(); // prevent the default form submission
+  
+          // validate the form data
+          if (!form.checkValidity()) {
+            alert('Please fill in all the required fields.');
+            return;
+          }
+  
+          // submit the form data to the server using AJAX
+          const xhr = new XMLHttpRequest();
+          xhr.open('POST', 'custregister.php');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              alert(xhr.responseText);
+              form.reset();
+            } else {
+              alert('Something went wrong. Please try again later.');
+            }
+          };
+          xhr.send(new FormData(form));
+          });
+  </script>
+  
+    <!-- <script>
+    function validate(email, mobno, password) {
+        if (validateEmail(email) && validateMobno(mobno) && validatePsswrd(password)) {
+            alert("valid");
+            document.getElementById("redirect").href="/supplogin.html";
+        }
+        else {
+            alert("Invalid Details");
+            document.getElementById("redirect").href="/suppregister.html";
+        }
+    };
+    function validateEmail(email) {
+        let mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (email.value.match(mailformat)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    function validateMobno(mobno) {
+        let phno = /^\d{10}$/;
+        if (mobno.value.match(phno)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    function validatePsswrd(password) {
+        let psswrd = /^[A-Za-z]\w{7,14}$/;
+        if (password.value.match(psswrd)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    </script> -->
+</body>
+</html>
